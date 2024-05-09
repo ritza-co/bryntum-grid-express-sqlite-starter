@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Dan Jones",
+    "city": "Los Angeles",
+    "team": "Stockholm Eagles",
+    "score": 430,
+    "percentage_wins": 30
+  },
+  {
+    "name": "Harry Smith",
+    "city": "Dubai",
+    "team": "Paris Lions",
+    "score": 120,
+    "percentage_wins": 50
+  },
+  {
+    "name": "Peter Holmes",
+    "city": "Stockholm",
+    "team": "Washington Ducks",
+    "score": 90,
+    "percentage_wins": 55
+  },
+  {
+    "name": "Jacob Reese",
+    "city": "Moscow",
+    "team": "Washington Ducks",
+    "score": 500,
+    "percentage_wins": 43
+  },
+  {
+    "name": "Gilles Girard",
+    "city": "Paris",
+    "team": "Moscow Bears",
+    "score": 800,
+    "percentage_wins": 88
+  },
+  {
+    "name": "Dan Jacobsen",
+    "city": "Moscow",
+    "team": "Paris Lions",
+    "score": 920,
+    "percentage_wins": 93
+  },
+  {
+    "name": "Walter Cruise",
+    "city": "Barcelona",
+    "team": "Stockholm Eagles",
+    "score": 100,
+    "percentage_wins": 44
+  },
+  {
+    "name": "Bill Nielsen",
+    "city": "Madrid",
+    "team": "Stockholm Eagles",
+    "score": 750,
+    "percentage_wins": 55
+  },
+  {
+    "name": "Gareth Freeman",
+    "city": "Chicago",
+    "team": "Moscow Bears",
+    "score": 310,
+    "percentage_wins": 33
+  },
+  {
+    "name": "Ben Newman",
+    "city": "Los Angeles",
+    "team": "Washington Ducks",
+    "score": 670,
+    "percentage_wins": 66
+  },
+  {
+    "name": "Garry Miller",
+    "city": "Paris",
+    "team": "Paris Lions",
+    "score": 820,
+    "percentage_wins": 80
+  },
+  {
+    "name": "Jim Knowles",
+    "city": "Dubai",
+    "team": "Stockholm Eagles",
+    "score": 440,
+    "percentage_wins": 53
+  },
+  {
+    "name": "Victor Reddy",
+    "city": "London",
+    "team": "Moscow Bears",
+    "score": 960,
+    "percentage_wins": 93
+  },
+  {
+    "name": "Bradley May",
+    "city": "Los Angeles",
+    "team": "Stockholm Eagles",
+    "score": 200,
+    "percentage_wins": 40
+  },
+  {
+    "name": "Wesley Malone",
+    "city": "Berlin",
+    "team": "Washington Ducks",
+    "score": 760,
+    "percentage_wins": 29
+  }
+]
