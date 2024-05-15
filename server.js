@@ -94,10 +94,7 @@ app.delete("/delete", async (req, res) => {
     res.send({ success: true });
   } catch (error) {
     console.error(error);
-    const message =
-      ids?.length > 1
-        ? "Players could not be deleted"
-        : "Player could not be deleted";
+    const message = "Could not delete selected player record(s)"
     res.send({
       success: false,
       message,
