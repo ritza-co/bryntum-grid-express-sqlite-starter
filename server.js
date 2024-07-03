@@ -33,51 +33,55 @@ app.get('/read', async(req, res) => {
 
 app.post('/create', async(req, res) => {
     try {
-        const newPlayer = await Player.create(req.body);
-
-        res.send({ success : true, data : [newPlayer] });
+        const playersData = req.body.data.map(player => {
+            const { id, ...fields } = player;
+            return fields;
+        });
+        const newPlayers = await Player.bulkCreate(playersData);
+        res.send({ success : true, data : newPlayers });
     }
     catch (error) {
         console.error(error);
         res.send({
             success : false,
-            message : 'Players could not be loaded'
+            message : 'Players could not be created.'
         });
     }
 });
 
-app.patch('/update/:itemId/', async(req, res) => {
+app.patch('/update', async(req, res) => {
     try {
-        const data = req.body;
-        const itemId = req.params.itemId;
-        // Perform the update and fetch in a single transaction
-        const result = await sequelize.transaction(async(t) => {
-            // Update the player
-            const [updated] = await Player.update(data, {
-                where       : { id : itemId },
-                transaction : t
-            });
+        const playersData = req.body.data;
+        const updatedPlayers = [];
 
-            if (updated) {
-                // Fetch the updated player
-                const updatedPlayer = await Player.findOne({
+        await sequelize.transaction(async(t) => {
+            for (const data of playersData) {
+                const itemId = data.id;
+                const [updated] = await Player.update(data, {
                     where       : { id : itemId },
                     transaction : t
                 });
-                return { updatedPlayer };
-            }
-            else {
-                throw new Error('Player not found');
+
+                if (updated) {
+                    const updatedPlayer = await Player.findOne({
+                        where       : { id : itemId },
+                        transaction : t
+                    });
+                    updatedPlayers.push(updatedPlayer);
+                }
+                else {
+                    throw new Error(`Player with id ${itemId} not be found.`);
+                }
             }
         });
 
-        res.send({ success : true, data : [result.updatedPlayer] });
+        res.send({ success : true, data : updatedPlayers });
     }
     catch (error) {
         console.error(error);
         res.send({
             success : false,
-            message : 'Player could not be updated'
+            message : 'Error updating player records.'
         });
     }
 });
