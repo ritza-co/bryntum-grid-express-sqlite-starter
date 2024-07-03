@@ -1,29 +1,30 @@
-import { readFileSync } from "fs";
-import sequelize from "./config/database.js";
-import Player from "./models/Player.js";
+import { readFileSync } from 'fs';
+import sequelize from './config/database.js';
+import Player from './models/Player.js';
 
 async function setupDatabase() {
-  // Wait for all models to synchronize with the database
-  await sequelize.sync();
+    // Wait for all models to synchronize with the database
+    await sequelize.sync();
 
-  // Now add example data
-  await addExampleData();
+    // Now add example data
+    await addExampleData();
 }
 
 async function addExampleData() {
-  try {
+    try {
     // Read and parse the JSON data
-    const playersData = JSON.parse(readFileSync("./initialData/players.json"));
+        const playersData = JSON.parse(readFileSync('./initialData/players.json'));
 
-    await sequelize.transaction(async (t) => {
-      const players = await Player.bulkCreate(playersData, { transaction: t });
-      return { players }; 
-    });
+        await sequelize.transaction(async(t) => {
+            const players = await Player.bulkCreate(playersData, { transaction : t });
+            return { players };
+        });
 
-    console.log("Players data added to database successfully.");
-  } catch (error) {
-    console.error("Failed to add data to database due to an error: ", error);
-  }
+        console.log('Players data added to database successfully.');
+    }
+    catch (error) {
+        console.error('Failed to add data to database due to an error: ', error);
+    }
 }
 
 setupDatabase();
