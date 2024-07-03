@@ -70,7 +70,7 @@ app.patch('/update', async(req, res) => {
                     updatedPlayers.push(updatedPlayer);
                 }
                 else {
-                    throw new Error(`Player with id ${itemId} not be found.`);
+                    throw new Error(`Player with id ${itemId} could not be found.`);
                 }
             }
         });
